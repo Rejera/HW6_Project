@@ -1,12 +1,18 @@
-#include "Gate.h"
+#include "Enumerations.h"
 #include <vector>
 using namespace std;
+class Gate;
 
-class wire {
+class Wire {
 public:
-	wire();
+	Wire(vector <Gate*> a);
+	int	getState();
+	void setGate(Gate* a);
+	void setState(WireState a);
 
-protected:
-	vector <gate*> output;
+private:
+	WireState state;
+	vector <Gate*> output;
+	bool wChanged;
 	
 };

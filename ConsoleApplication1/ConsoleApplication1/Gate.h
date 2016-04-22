@@ -1,10 +1,15 @@
 using namespace std;
+class Wire;
+class Gate {
+	Gate();
+	Gate(Wire *a, Wire *b, Wire *c, int d, string t);
 
-class gate {
-	// input
-	//input2
-	//output
-	//delay
-	//type
-	//do.logic function
+	int	doLogic();
+
+
+private:
+	Wire *in1, *in2;
+	Wire *out;
+	int delay;
+	string type;
 };
