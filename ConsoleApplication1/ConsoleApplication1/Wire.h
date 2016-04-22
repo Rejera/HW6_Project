@@ -3,6 +3,9 @@
 using namespace std;
 class Gate;
 
+#ifndef WIRE_H
+#define WIRE_H
+
 class Wire {
 public:
 	Wire(vector <Gate*> a);
@@ -16,3 +19,4 @@ private:
 	bool wChanged;
 	
 };
+#endif
