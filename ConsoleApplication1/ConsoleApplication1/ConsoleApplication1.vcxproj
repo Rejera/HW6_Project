@@ -149,6 +149,7 @@
     <ClInclude Include="Wire.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Event.cpp" />
     <ClCompile Include="Gate.cpp" />
     <ClCompile Include="Simulation.cpp" />
     <ClCompile Include="Wire.cpp" />

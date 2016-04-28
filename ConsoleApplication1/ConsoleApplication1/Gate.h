@@ -10,10 +10,10 @@ class Gate {
 	int	doLogic();
 
 
-private:
-	Wire *in1, *in2;
-	Wire *out;
-	int delay;
-	string type;
+	private:
+		Wire *in1, *in2;
+		Wire *out;
+		int delay;
+		string type;
 };
 #endif
