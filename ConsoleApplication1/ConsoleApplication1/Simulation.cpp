@@ -5,23 +5,47 @@
 #include "Event.h"
 #include <fstream>
 #include <string>
+#include <map>
+#include <queue>
+#include <functional>
 
 using namespace std;
 
 int main() {
+	map<char, int> convert;
+	for (int i = 0;i < 26;i++) {
+		char letter = 'A';
+		convert[letter] = i + 1;
+		letter++;
+	}
 	string file, circFile, vecFile,object,wireName,sDelay;
 	ifstream Circuit, Vector;
 	vector<Gate*> gates;
 	vector<Wire*> wires;
-	int wireNumber, inW1,inW2,outW,iDelay;
+	int wireNumber, inW1,inW2,outW,iDelay,time,count,wirVal;
+	WireState vecWirVal;
 	vector <string> gate{ "NOT","AND","OR","XOR","NAND","NOR","XNOR" };
+	char c;
+	count = 0;
+	priority_queue <Event, vector<Event>, greater<Event>> eq;
+
 	cout << "Please input the name of the circuit you want to simulate:" << endl;
 	cin >> file;
 	circFile = file + ".txt";
 	vecFile = file + "_v.txt";
 	Circuit.open(circFile);
 	Vector.open(vecFile);
-	
+	while (Circuit.fail() == true && Vector.fail() == true) {
+		cout << "The file name that you entered is incorrect. Please enter another, or type 'quit' to exit the program.";
+		cin >> file;
+		if (file == "quit") {
+			return 1;
+		}
+		circFile = file + ".txt";
+		vecFile = file + "_v.txt";
+		Circuit.open(circFile);
+		Vector.open(vecFile);
+	}
 	while (!Circuit.eof()) {
 		Circuit >> object;
 		if (object == "INPUT" || object == "OUTPUT") {
@@ -57,7 +81,20 @@ int main() {
 		}
 	}
 	while (!Vector.eof()) {
-
+		cin >> object;
+		if (object == "INPUT") {
+			cin >> c;
+			cin >> time;
+			cin >> wirVal;
+			if (wirVal == 1) {
+				vecWirVal = high;
+			}
+			else if (wirVal == 0) {
+				vecWirVal = low;
+			}
+			eq.emplace(new Event{ time,convert[c],vecWirVal, count });
+			count++;
+		}
 	}
 
 }
