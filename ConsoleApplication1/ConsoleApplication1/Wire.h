@@ -8,12 +8,14 @@ class Gate;
 
 class Wire {
 public:
-	Wire(vector <Gate*> a);
+	Wire(string a, int b);
 	int	getState();
-	void setGate(Gate* a);
+	void addGate(Gate* a);
 	void setState(WireState a);
 
 private:
+	string wireName;
+	int wireNum;
 	WireState state;
 	vector <Gate*> output;
 	bool wChanged;

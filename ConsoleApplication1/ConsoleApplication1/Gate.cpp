@@ -10,6 +10,14 @@ Gate::Gate(Wire *a, Wire *b, Wire *c, int d, string t) {
 		type = t;
 }
 
+Gate::Gate(Wire *a, Wire *b, int d, string t) {
+	in1 = a;
+	in2 = b;
+	out = nullptr;
+	delay = d;
+	type = t;
+}
+
 int Gate::doLogic() {
 	//Logic will go here depending on what gate type
 	if (type == "OR") {
