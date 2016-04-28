@@ -4,9 +4,10 @@ class Wire;
 #define GATE_H
 
 class Gate {
-	Gate();
+public:
 	Gate(Wire *a, Wire *b, Wire *c, int d, string t);
-
+	Gate(Wire *a, Wire *b, int d, string t);
+	
 	int	doLogic();
 
 
