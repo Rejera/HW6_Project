@@ -9,16 +9,13 @@ class Gate;
 class Wire {
 public:
 	Wire(string a, int b);
-	int	getState();
-	void addGate(Gate* a);
+	WireState	getState();
 	void setState(WireState a);
 
 private:
 	string wireName;
 	int wireNum;
 	WireState state;
-	vector <Gate*> output;
-	bool wChanged;
 	
 };
 #endif

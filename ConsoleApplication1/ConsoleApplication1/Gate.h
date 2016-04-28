@@ -18,5 +18,7 @@ public:
 		Wire *out;
 		int delay;
 		string type;
+		WireState input1, input2;
+		bool inChange;
 };
 #endif

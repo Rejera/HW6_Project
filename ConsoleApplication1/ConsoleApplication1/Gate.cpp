@@ -8,14 +8,19 @@ Gate::Gate(Wire *a, Wire *b, Wire *c, int d, string t) {
 		out = c;
 		delay = d;
 		type = t;
+		input1 = a->getState();
+		input2 = b->getState();
+		inChange = false;
 }
 
 Gate::Gate(Wire *a, Wire *b, int d, string t) {
 	in1 = a;
-	in2 = b;
-	out = nullptr;
+	in2 = nullptr;
+	out = b;
 	delay = d;
 	type = t;
+	input1 = a->getState();
+	inChange = false;
 }
 
 Event Gate::doLogic() {

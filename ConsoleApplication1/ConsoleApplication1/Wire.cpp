@@ -2,7 +2,7 @@
 #include "Gate.h"
 
 
-int Wire::getState() {
+WireState Wire::getState() {
 	return state;
 }
 void Wire::setState(WireState a) {
