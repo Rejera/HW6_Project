@@ -28,6 +28,7 @@ int main() {
 	char c;
 	count = 0;
 	priority_queue <Event, vector<Event>, greater<Event>> eq;
+	Event current;
 
 	cout << "Please input the name of the circuit you want to simulate:" << endl;
 	cin >> file;
@@ -97,4 +98,15 @@ int main() {
 		}
 	}
 
+	while (!eq.empty() && current.getTime<60) {
+		current = eq.pop;
+		wires[current.getWireNumber].setState(current.getWireState);
+
+		for (int i = 0; i < gates.size(); i++) {
+			if (gates[i]->inChanged) {
+				eq.emplace(gates[i]->doLogic(current.getTime, count));
+				count++;
+			}
+		}
+	}
 }

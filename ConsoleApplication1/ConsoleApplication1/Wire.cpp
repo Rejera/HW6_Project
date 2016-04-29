@@ -8,8 +8,8 @@ WireState Wire::getState() {
 void Wire::setState(WireState a) {
 	state = a;
 }
-void Wire::addGate(Gate* a) {
-	output.push_back(a);
+int Wire::getWireNum() {
+	return wireNum;
 }
 Wire::Wire(string a, int b) {
 	wireName = a;

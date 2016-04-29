@@ -12,6 +12,8 @@ public:
 	WireState	getState();
 	void setState(WireState a);
 
+	int getWireNum();
+
 private:
 	string wireName;
 	int wireNum;

@@ -10,8 +10,9 @@ public:
 	Gate(Wire *a, Wire *b, Wire *c, int d, string t);
 	Gate(Wire *a, Wire *b, int d, string t);
 	
-	Event doLogic();
+	Event doLogic(int time, int count);
 
+	bool inChanged();
 
 	private:
 		Wire *in1, *in2;
@@ -19,6 +20,5 @@ public:
 		int delay;
 		string type;
 		WireState input1, input2;
-		bool inChange;
 };
 #endif
